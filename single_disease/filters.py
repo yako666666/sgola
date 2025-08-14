@@ -25,7 +25,7 @@ class SingleDiseaseReportFilter(django_filters.FilterSet):
         model = Single_disease_report
         fields = ["month", "disease_code", "organization_code"]
 
-    def filter_month(self, queryset: QuerySet, name: str, value: str) -> QuerySet:
+    def filter_month(self, queryset: QuerySet, _name: str, value: str) -> QuerySet:
         month_first_day = first_day_of_month_from_str(value)
         days_in_month = monthrange(month_first_day.year, month_first_day.month)[1]
         month_last_day = month_first_day.replace(day=days_in_month)
